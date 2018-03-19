@@ -1,10 +1,12 @@
 import {
-  HashLocationStrategy,
-  LocationStrategy
+    HashLocationStrategy,
+    LocationStrategy
 } from '@angular/common';
 import {NgModule} from '@angular/core';
-import {FormsModule,
-        ReactiveFormsModule} from '@angular/forms';
+import {
+    FormsModule,
+    ReactiveFormsModule
+} from '@angular/forms';
 import {BrowserModule} from '@angular/platform-browser';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
@@ -23,46 +25,49 @@ import {EditorComponent} from './projects/editor/editor.component';
 import {ProjectsComponent} from './projects/projects.component';
 import {VisualComponent} from './projects/visual/visual.component';
 import {ShareModule} from './share.module';
-import {NodeService} from './shared/services/node.service';
+import {ProjectService} from './shared/services/project.service';
 import {UserService} from './shared/services/user.service';
 import {SplitPanelLoginModule} from './split-panel-login/split-panel-login.module';
 import {WebserviceModalModule} from './webservice-config-menu/webservice-modal.module';
+import {AdminModule} from './admin/admin.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    MainNavComponent,
-    HomeComponent,
-    CarouselComponent,
-    ProjectsComponent,
-    DetailComponent,
-    EditorComponent,
-    BreadcrumbComponent,
-    DebugComponent,
-    VisualComponent,
-    CollapsibleTreeComponent,
-    BarChartComponent,
-  ],
+    declarations: [
+        AppComponent,
+        MainNavComponent,
+        HomeComponent,
+        CarouselComponent,
+        ProjectsComponent,
+        DetailComponent,
+        EditorComponent,
+        BreadcrumbComponent,
+        DebugComponent,
+        VisualComponent,
+        CollapsibleTreeComponent,
+        BarChartComponent,
+    ],
 
-  imports: [
-    ShareModule,
-    BrowserModule,
-    FormsModule,
-    ReactiveFormsModule,
-    NgbModule.forRoot(),
-    DemoAppModule,
-    AppRoutingModule,
-    SplitPanelLoginModule,
-    WebserviceModalModule,
-  ],
+
+    imports: [
+        ShareModule,
+        BrowserModule,
+        FormsModule,
+        ReactiveFormsModule,
+        NgbModule.forRoot(),
+        DemoAppModule,
+        AppRoutingModule,
+        SplitPanelLoginModule,
+        WebserviceModalModule,
+        AdminModule
+    ],
 
   providers: [
     UserService,
-    NodeService,
+    ProjectService,
     {provide: LocationStrategy, useClass: HashLocationStrategy},
   ],
 
-  bootstrap: [AppComponent]
+    bootstrap: [AppComponent]
 })
 export class AppModule {
 }
