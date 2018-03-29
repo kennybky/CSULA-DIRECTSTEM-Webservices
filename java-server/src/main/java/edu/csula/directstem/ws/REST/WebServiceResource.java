@@ -58,7 +58,7 @@ public class WebServiceResource {
         System.out.println("POST - /ws/query");
         
         WebService ws = new Gson().fromJson(wsJSON, WebService.class);
-        QueryWSResult result = new QueryWSResult(ws.getUrl(), -1);
+        QueryWSResult result = new QueryWSResult(ws.getUrl(), -1, "");
         try {
         	boolean need_params = true;
         	boolean ssl = false;
@@ -72,6 +72,7 @@ public class WebServiceResource {
         	if(url.substring(0, 4).toLowerCase().equals("https"))
         		ssl = true;
         	
+        	// reconstruct a GET request url string thing
         	if(method.equals("GET")) {
         		need_params = false;
         		url += "?";
@@ -123,6 +124,7 @@ public class WebServiceResource {
      
         	int time = (int)(end - start);
         	result.setTime(time);
+        	result.setResponse(responseBody);
         }
         catch(Exception e) {
         	// do something?
